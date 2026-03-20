@@ -1,11 +1,129 @@
 @import "tailwindcss";
 
+/* ── Warm neutral palette + amber accent ── */
 :root {
-  --color-brand: #1a1a2e;
-  --color-accent: #e94560;
-  --color-light: #f5f5f7;
+  --color-bg: #faf8f5;
+  --color-bg-alt: #f0ece6;
+  --color-surface: #ffffff;
+  --color-text: #2c2825;
+  --color-text-muted: #7a7269;
+  --color-accent: #d97706;
+  --color-accent-hover: #b45309;
+  --color-border: #e5e0d8;
+  --color-hero-from: #2c2825;
+  --color-hero-via: #3d332c;
+  --color-hero-to: #1a1714;
+  --color-card-hover: rgba(217, 119, 6, 0.06);
+  --nav-bg: rgba(250, 248, 245, 0.8);
 }
 
+[data-theme="dark"] {
+  --color-bg: #1a1714;
+  --color-bg-alt: #242019;
+  --color-surface: #2c2825;
+  --color-text: #f0ece6;
+  --color-text-muted: #a89e93;
+  --color-accent: #f59e0b;
+  --color-accent-hover: #fbbf24;
+  --color-border: #3d362e;
+  --color-hero-from: #1a1714;
+  --color-hero-via: #2c2825;
+  --color-hero-to: #0f0d0b;
+  --color-card-hover: rgba(245, 158, 11, 0.08);
+  --nav-bg: rgba(26, 23, 20, 0.8);
+}
+
+/* ── Base ── */
 html {
   scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-text);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+::selection {
+  background: var(--color-accent);
+  color: white;
+}
+
+/* ── Smooth theme cross-fade ── */
+* {
+  transition-property: background-color, border-color, color, fill, stroke;
+  transition-duration: 0.3s;
+  transition-timing-function: ease;
+}
+
+/* Opt out for animated elements */
+[data-no-theme-transition],
+[data-no-theme-transition] * {
+  transition-property: none !important;
+}
+
+/* ── Animated gradient for hero ── */
+@keyframes gradient-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+.hero-gradient {
+  background: linear-gradient(135deg, var(--color-hero-from), var(--color-hero-via), var(--color-hero-to), var(--color-hero-via));
+  background-size: 300% 300%;
+  animation: gradient-shift 12s ease infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-gradient {
+    animation: none;
+    background-size: 100% 100%;
+  }
+}
+
+/* ── Process connector line ── */
+@keyframes draw-line {
+  from { height: 0; }
+  to { height: 100%; }
+}
+
+/* ── Custom cursor styles ── */
+.custom-cursor-active * {
+  cursor: none !important;
+}
+
+/* ── Form focus ring ── */
+.form-input {
+  background: var(--color-surface);
+  border: 1.5px solid var(--color-border);
+  border-radius: 0.75rem;
+  padding: 1rem 1rem 0.75rem;
+  width: 100%;
+  font-size: 1rem;
+  color: var(--color-text);
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.form-input:focus {
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 3px rgba(217, 119, 6, 0.15);
+}
+
+/* ── Scrollbar styling ── */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-text-muted);
 }
