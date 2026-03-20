@@ -1,67 +1,63 @@
 "use client";
 
-import { useState, useRef } from "react";
+import { useState } from "react";
+import { useForm } from "react-hook-form";
 import { motion } from "framer-motion";
 import MagneticButton from "./MagneticButton";
 
-interface FormState {
+interface FormData {
   name: string;
   email: string;
   message: string;
 }
 
-interface Errors {
-  name?: string;
-  email?: string;
-  message?: string;
-}
-
 function FloatingInput({
   label,
   name,
-  type = "text",
-  value,
   error,
-  onChange,
   textarea = false,
+  registration,
+  value,
 }: {
   label: string;
   name: string;
-  type?: string;
-  value: string;
   error?: string;
-  onChange: (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
   textarea?: boolean;
+  registration: object;
+  value: string;
 }) {
   const [focused, setFocused] = useState(false);
   const active = focused || value.length > 0;
-
-  const Tag = textarea ? "textarea" : "input";
+  const inputId = `contact-${name}`;
 
   return (
     <div className="relative">
       {textarea ? (
         <textarea
-          name={name}
-          value={value}
-          onChange={onChange}
+          id={inputId}
+          {...registration}
           onFocus={() => setFocused(true)}
-          onBlur={() => setFocused(false)}
+          onBlur={(e) => {
+            setFocused(false);
+            (registration as { onBlur: (e: unknown) => void }).onBlur(e);
+          }}
           className={`form-input peer min-h-[140px] resize-y ${error ? "!border-red-400" : ""}`}
           rows={5}
         />
       ) : (
         <input
-          name={name}
-          type={type}
-          value={value}
-          onChange={onChange}
+          id={inputId}
+          {...registration}
           onFocus={() => setFocused(true)}
-          onBlur={() => setFocused(false)}
+          onBlur={(e) => {
+            setFocused(false);
+            (registration as { onBlur: (e: unknown) => void }).onBlur(e);
+          }}
           className={`form-input peer ${error ? "!border-red-400" : ""}`}
         />
       )}
       <label
+        htmlFor={inputId}
         className={`pointer-events-none absolute left-4 transition-all duration-200 ${
           active
             ? "top-1 text-xs font-medium text-[var(--color-accent)]"
@@ -84,39 +80,18 @@ function FloatingInput({
 }
 
 export default function Contact() {
-  const [form, setForm] = useState<FormState>({ name: "", email: "", message: "" });
-  const [errors, setErrors] = useState<Errors>({});
-  const [submitted, setSubmitted] = useState(false);
-  const [submitting, setSubmitting] = useState(false);
-  const formRef = useRef<HTMLFormElement>(null);
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors, isSubmitting, isSubmitSuccessful },
+  } = useForm<FormData>({ mode: "onBlur" });
 
-  const validate = (): boolean => {
-    const e: Errors = {};
-    if (!form.name.trim()) e.name = "What should I call you?";
-    if (!form.email.trim()) e.email = "I'll need your email to get back to you.";
-    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) e.email = "That doesn't look like a valid email.";
-    if (!form.message.trim()) e.message = "Don't be shy — tell me about your project!";
-    setErrors(e);
-    return Object.keys(e).length === 0;
-  };
+  const watchedValues = watch();
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target;
-    setForm((prev) => ({ ...prev, [name]: value }));
-    if (errors[name as keyof Errors]) {
-      setErrors((prev) => ({ ...prev, [name]: undefined }));
-    }
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!validate()) return;
-
-    setSubmitting(true);
+  const onSubmit = async (_data: FormData) => {
     // Simulate submission — replace with real endpoint
     await new Promise((r) => setTimeout(r, 1500));
-    setSubmitting(false);
-    setSubmitted(true);
   };
 
   return (
@@ -138,7 +113,7 @@ export default function Contact() {
           </p>
         </motion.div>
 
-        {submitted ? (
+        {isSubmitSuccessful ? (
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -161,8 +136,7 @@ export default function Contact() {
           </motion.div>
         ) : (
           <motion.form
-            ref={formRef}
-            onSubmit={handleSubmit}
+            onSubmit={handleSubmit(onSubmit)}
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-50px" }}
@@ -170,21 +144,46 @@ export default function Contact() {
             className="space-y-6 rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)] p-8 sm:p-10"
           >
             <div className="grid gap-6 sm:grid-cols-2">
-              <FloatingInput label="Your name" name="name" value={form.name} error={errors.name} onChange={handleChange} />
-              <FloatingInput label="Email address" name="email" type="email" value={form.email} error={errors.email} onChange={handleChange} />
+              <FloatingInput
+                label="Your name"
+                name="name"
+                error={errors.name?.message}
+                value={watchedValues.name || ""}
+                registration={register("name", { required: "What should I call you?" })}
+              />
+              <FloatingInput
+                label="Email address"
+                name="email"
+                error={errors.email?.message}
+                value={watchedValues.email || ""}
+                registration={register("email", {
+                  required: "I'll need your email to get back to you.",
+                  pattern: {
+                    value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+                    message: "That doesn't look like a valid email.",
+                  },
+                })}
+              />
             </div>
-            <FloatingInput label="Tell me about your project" name="message" value={form.message} error={errors.message} onChange={handleChange} textarea />
+            <FloatingInput
+              label="Tell me about your project"
+              name="message"
+              error={errors.message?.message}
+              value={watchedValues.message || ""}
+              registration={register("message", { required: "Don't be shy — tell me about your project!" })}
+              textarea
+            />
 
             <div className="flex flex-col items-center gap-4 pt-2 sm:flex-row sm:justify-between">
               <MagneticButton
                 type="submit"
                 className={`inline-flex items-center gap-2 rounded-full px-8 py-3.5 text-base font-semibold text-white transition-all ${
-                  submitting
+                  isSubmitting
                     ? "bg-[var(--color-accent)]/70 cursor-wait"
                     : "bg-[var(--color-accent)] hover:bg-[var(--color-accent-hover)]"
                 }`}
               >
-                {submitting ? (
+                {isSubmitting ? (
                   <>
                     <svg className="h-5 w-5 animate-spin" viewBox="0 0 24 24" fill="none">
                       <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />

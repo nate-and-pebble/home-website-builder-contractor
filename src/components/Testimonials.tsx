@@ -100,11 +100,13 @@ export default function Testimonials() {
               <button
                 key={i}
                 onClick={() => { setDirection(i > current ? 1 : -1); setCurrent(i); }}
-                className={`h-2 rounded-full transition-all ${
-                  i === current ? "w-8 bg-[var(--color-accent)]" : "w-2 bg-[var(--color-border)]"
-                }`}
+                className="flex h-8 w-8 items-center justify-center"
                 aria-label={`Go to testimonial ${i + 1}`}
-              />
+              >
+                <span className={`block h-2 rounded-full transition-all ${
+                  i === current ? "w-8 bg-[var(--color-accent)]" : "w-2 bg-[var(--color-border)]"
+                }`} />
+              </button>
             ))}
           </div>
 
