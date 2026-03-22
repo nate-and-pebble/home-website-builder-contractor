@@ -25,6 +25,9 @@ export function PricingCard({ tier }: PricingCardProps) {
       <h3 className="text-xl font-display font-semibold mb-2">{tier.name}</h3>
       <p className="text-2xl font-display font-bold mb-2 text-[var(--color-accent)]">
         {tier.price}
+        <span className="text-sm font-normal text-[var(--color-text-muted)]">
+          {tier.period}
+        </span>
       </p>
       <p className="text-sm text-[var(--color-text-muted)] mb-6 leading-relaxed">
         {tier.description}
@@ -44,7 +47,7 @@ export function PricingCard({ tier }: PricingCardProps) {
       </ul>
       <a
         href="#contact"
-        className={`block text-center py-3.5 px-6 rounded-xl font-bold text-sm tracking-wide transition-all duration-300 ${
+        className={`block text-center py-3.5 px-6 rounded-xl font-bold text-sm tracking-wide transition-all duration-300 min-h-[44px] flex items-center justify-center ${
           tier.highlighted
             ? "bg-[var(--color-accent)] text-white hover:bg-[var(--color-accent-hover)] hover:-translate-y-0.5 hover:shadow-[0_8px_24px_rgba(184,101,58,0.35)]"
             : "border-2 border-[var(--color-accent)] text-[var(--color-accent)] hover:bg-[var(--color-accent)] hover:text-white hover:-translate-y-0.5"

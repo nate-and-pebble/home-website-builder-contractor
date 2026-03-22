@@ -12,14 +12,14 @@ export function Pricing() {
           id="pricing-heading"
           className="text-3xl md:text-4xl font-display font-bold mb-3"
         >
-          Simple Pricing
+          Packages
         </h2>
         <p className="text-[var(--color-text-muted)] max-w-md mx-auto">
-          Transparent packages. Every tier includes responsive design, SEO, and
-          performance optimization.
+          Transparent monthly plans. No contracts, no surprises — just
+          consistent, expert-level web work.
         </p>
       </div>
-      <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto items-start">
+      <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto items-start pt-4">
         {pricingTiers.map((tier) => (
           <PricingCard key={tier.id} tier={tier} />
         ))}
