@@ -55,7 +55,7 @@ export function Header({ visible }: { visible: boolean }) {
           ))}
           <button
             onClick={toggle}
-            className="w-8 h-8 rounded-lg flex items-center justify-center text-[var(--color-text-muted)] hover:text-[var(--color-text)] transition-colors"
+            className="w-11 h-11 rounded-lg flex items-center justify-center text-[var(--color-text-muted)] hover:text-[var(--color-text)] transition-colors"
             aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
           >
             {theme === "dark" ? <Sun size={16} /> : <Moon size={16} />}
@@ -71,17 +71,17 @@ export function Header({ visible }: { visible: boolean }) {
         </div>
 
         {/* Mobile menu button */}
-        <div className="flex md:hidden items-center gap-3">
+        <div className="flex md:hidden items-center gap-1">
           <button
             onClick={toggle}
-            className="w-8 h-8 rounded-lg flex items-center justify-center text-[var(--color-text-muted)]"
+            className="w-11 h-11 rounded-lg flex items-center justify-center text-[var(--color-text-muted)]"
             aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
           >
             {theme === "dark" ? <Sun size={16} /> : <Moon size={16} />}
           </button>
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
-            className="w-8 h-8 flex items-center justify-center text-[var(--color-text-muted)]"
+            className="w-11 h-11 flex items-center justify-center text-[var(--color-text-muted)]"
             aria-label="Toggle menu"
             aria-expanded={mobileOpen}
           >
@@ -98,7 +98,7 @@ export function Header({ visible }: { visible: boolean }) {
               key={link.href}
               href={link.href}
               onClick={() => setMobileOpen(false)}
-              className="block py-2 text-[var(--color-text-muted)] hover:text-[var(--color-text)]"
+              className="block py-3 text-[var(--color-text-muted)] hover:text-[var(--color-text)]"
             >
               {link.label}
             </a>
@@ -106,7 +106,7 @@ export function Header({ visible }: { visible: boolean }) {
           <a
             href="#contact"
             onClick={() => setMobileOpen(false)}
-            className="block mt-2 py-2 text-[var(--color-accent)] font-bold"
+            className="block mt-2 py-3 text-[var(--color-accent)] font-bold"
           >
             Get in Touch
           </a>

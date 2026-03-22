@@ -26,7 +26,7 @@ export function Services() {
       <div className="text-center mt-10">
         <a
           href="#contact"
-          className="inline-block px-8 py-3.5 rounded-xl border-2 border-[var(--color-accent)] text-[var(--color-accent)] text-sm font-bold tracking-wide transition-all duration-300 hover:bg-[var(--color-accent)] hover:text-white hover:-translate-y-0.5"
+          className="inline-flex items-center px-8 py-3.5 rounded-xl border-2 border-[var(--color-accent)] text-[var(--color-accent)] text-sm font-bold tracking-wide transition-all duration-300 hover:bg-[var(--color-accent)] hover:text-white hover:-translate-y-0.5"
         >
           Ready to build? Let&apos;s talk &rarr;
         </a>

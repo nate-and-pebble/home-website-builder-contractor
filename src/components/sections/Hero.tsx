@@ -24,9 +24,9 @@ export function Hero({ visible }: { visible: boolean }) {
   return (
     <section
       id="hero"
-      className="relative min-h-screen flex items-center px-6 md:px-12 lg:px-24"
+      className="relative min-h-[calc(100svh-2rem)] md:min-h-screen flex items-center px-6 md:px-12 lg:px-24"
     >
-      <div className="max-w-7xl mx-auto w-full grid lg:grid-cols-2 gap-12 lg:gap-20 items-center py-24">
+      <div className="max-w-7xl mx-auto w-full grid lg:grid-cols-2 gap-12 lg:gap-20 items-center py-16 md:py-24">
         {/* Left — text */}
         <motion.div
           variants={container}
@@ -57,13 +57,13 @@ export function Hero({ visible }: { visible: boolean }) {
           <motion.div variants={item} className="flex flex-wrap gap-3">
             <a
               href="#contact"
-              className="px-8 py-3.5 rounded-xl bg-[var(--color-accent)] text-white font-bold text-sm tracking-wide transition-all duration-300 hover:bg-[var(--color-accent-hover)] hover:-translate-y-0.5 hover:shadow-[0_8px_24px_rgba(184,101,58,0.35)]"
+              className="inline-flex items-center px-8 py-3.5 rounded-xl bg-[var(--color-accent)] text-white font-bold text-sm tracking-wide transition-all duration-300 hover:bg-[var(--color-accent-hover)] hover:-translate-y-0.5 hover:shadow-[0_8px_24px_rgba(184,101,58,0.35)]"
             >
               Start a Project
             </a>
             <a
               href="#work"
-              className="px-8 py-3.5 rounded-xl border-2 border-[var(--color-accent)] text-[var(--color-accent)] font-bold text-sm tracking-wide transition-all duration-300 hover:bg-[var(--color-accent)] hover:text-white hover:-translate-y-0.5"
+              className="inline-flex items-center px-8 py-3.5 rounded-xl border-2 border-[var(--color-accent)] text-[var(--color-accent)] font-bold text-sm tracking-wide transition-all duration-300 hover:bg-[var(--color-accent)] hover:text-white hover:-translate-y-0.5"
             >
               See My Work
             </a>

@@ -50,11 +50,7 @@
   --color-border: var(--color-border-dark);
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+/* Tailwind v4 Preflight handles reset — no manual * reset needed */
 
 html {
   scroll-behavior: auto;
@@ -152,6 +148,17 @@ body::before {
   background-size: 180px;
   pointer-events: none;
   z-index: 9999;
+}
+
+/* Edge fade mask for marquee */
+.marquee-mask {
+  -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+  mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+}
+
+/* Scroll-margin for fixed header (h-16 = 64px + 16px breathing room) */
+section[id] {
+  scroll-margin-top: 80px;
 }
 
 /* Reduced motion */

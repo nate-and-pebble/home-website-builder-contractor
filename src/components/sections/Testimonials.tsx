@@ -54,7 +54,7 @@ export function Testimonials() {
         <div className="flex justify-center gap-3 mt-8">
           <button
             onClick={prev}
-            className="w-9 h-9 rounded-full border border-[var(--color-border)] flex items-center justify-center text-[var(--color-text-muted)] hover:border-[var(--color-accent)] hover:text-[var(--color-accent)] transition-colors"
+            className="w-11 h-11 rounded-full border border-[var(--color-border)] flex items-center justify-center text-[var(--color-text-muted)] hover:border-[var(--color-accent)] hover:text-[var(--color-accent)] transition-colors"
             aria-label="Previous testimonial"
           >
             <ChevronLeft size={16} />
@@ -64,18 +64,22 @@ export function Testimonials() {
               <button
                 key={i}
                 onClick={() => setCurrent(i)}
-                className={`w-2 h-2 rounded-full transition-all duration-200 ${
-                  i === current
-                    ? "bg-[var(--color-accent)] w-5"
-                    : "bg-[var(--color-border)]"
-                }`}
+                className="relative flex items-center justify-center w-11 h-11"
                 aria-label={`Go to testimonial ${i + 1}`}
-              />
+              >
+                <span
+                  className={`block rounded-full transition-all duration-200 ${
+                    i === current
+                      ? "bg-[var(--color-accent)] w-5 h-2"
+                      : "bg-[var(--color-border)] w-2 h-2"
+                  }`}
+                />
+              </button>
             ))}
           </div>
           <button
             onClick={next}
-            className="w-9 h-9 rounded-full border border-[var(--color-border)] flex items-center justify-center text-[var(--color-text-muted)] hover:border-[var(--color-accent)] hover:text-[var(--color-accent)] transition-colors"
+            className="w-11 h-11 rounded-full border border-[var(--color-border)] flex items-center justify-center text-[var(--color-text-muted)] hover:border-[var(--color-accent)] hover:text-[var(--color-accent)] transition-colors"
             aria-label="Next testimonial"
           >
             <ChevronRight size={16} />

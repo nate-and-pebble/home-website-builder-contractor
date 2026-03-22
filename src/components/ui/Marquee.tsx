@@ -34,7 +34,10 @@ export function Marquee({ items, speed = 30 }: MarqueeProps) {
   const doubled = [...items, ...items];
 
   return (
-    <div className="overflow-hidden relative" aria-hidden="true">
+    <div
+      className="overflow-hidden relative marquee-mask"
+      aria-hidden="true"
+    >
       <div
         className="flex gap-12 whitespace-nowrap"
         style={{
