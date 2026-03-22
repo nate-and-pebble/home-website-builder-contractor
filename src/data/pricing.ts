@@ -9,6 +9,9 @@ export interface PricingTier {
   cta: string;
 }
 
+export const setupFeeNote =
+  "Flat setup fee for any tier, waived on annual commitment.";
+
 export const pricingTiers: PricingTier[] = [
   {
     id: "starter",

@@ -1,7 +1,8 @@
 "use client";
 
-import { Check } from "lucide-react";
+import { Check, Info } from "lucide-react";
 import type { PricingTier } from "@/data/pricing";
+import { setupFeeNote } from "@/data/pricing";
 
 interface PricingCardProps {
   tier: PricingTier;
@@ -31,6 +32,10 @@ export function PricingCard({ tier }: PricingCardProps) {
       </p>
       <p className="text-sm text-[var(--color-text-muted)] mb-6 leading-relaxed">
         {tier.description}
+      </p>
+      <p className="flex items-start gap-1.5 text-[11px] text-[var(--color-text-muted)]/70 mb-6 -mt-3 leading-snug">
+        <Info size={12} className="shrink-0 mt-px opacity-50" />
+        <span>{setupFeeNote}</span>
       </p>
       <ul className="space-y-3 mb-8 flex-1">
         {tier.features.map((feature) => (
