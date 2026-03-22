@@ -62,7 +62,7 @@ export function ContactForm() {
   }
 
   const inputBase =
-    "w-full px-4 py-3.5 rounded-xl bg-[var(--color-bg)] border-2 text-[var(--color-text)] placeholder:text-[var(--color-text-muted)]/40 transition-all duration-200 outline-none";
+    "w-full px-4 rounded-xl bg-[var(--color-bg)] border-2 text-[var(--color-text)] transition-all duration-200 outline-none";
   const inputFocus = "border-[var(--color-accent)] shadow-[0_0_0_3px_rgba(184,101,58,0.1)]";
   const inputIdle = "border-[var(--color-border)] hover:border-[var(--color-text-muted)]/30";
 
@@ -97,10 +97,7 @@ export function ContactForm() {
           onChange={(e) => setFormData({ ...formData, name: e.target.value })}
           onFocus={() => setFocused("name")}
           onBlur={() => setFocused(null)}
-          className={`${inputBase} ${focused === "name" ? inputFocus : inputIdle} ${
-            focused === "name" || formData.name ? "pt-5 pb-2" : ""
-          }`}
-          placeholder={focused === "name" || formData.name ? "" : "Your name"}
+          className={`${inputBase} pt-5 pb-2 ${focused === "name" ? inputFocus : inputIdle}`}
         />
       </div>
 
@@ -123,10 +120,7 @@ export function ContactForm() {
           onChange={(e) => setFormData({ ...formData, email: e.target.value })}
           onFocus={() => setFocused("email")}
           onBlur={() => setFocused(null)}
-          className={`${inputBase} ${focused === "email" ? inputFocus : inputIdle} ${
-            focused === "email" || formData.email ? "pt-5 pb-2" : ""
-          }`}
-          placeholder={focused === "email" || formData.email ? "" : "you@example.com"}
+          className={`${inputBase} pt-5 pb-2 ${focused === "email" ? inputFocus : inputIdle}`}
         />
       </div>
 
@@ -146,7 +140,8 @@ export function ContactForm() {
             }
             onFocus={() => setFocused("projectType")}
             onBlur={() => setFocused(null)}
-            className={`${inputBase} ${focused === "projectType" ? inputFocus : inputIdle}`}
+            className={`${inputBase} min-h-[44px] py-3 pr-10 appearance-none ${focused === "projectType" ? inputFocus : inputIdle}`}
+            style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%237A7067' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E")`, backgroundRepeat: "no-repeat", backgroundPosition: "right 12px center" }}
           >
             <option value="">Select one...</option>
             <option value="new">New Website</option>
@@ -171,12 +166,13 @@ export function ContactForm() {
             }
             onFocus={() => setFocused("budget")}
             onBlur={() => setFocused(null)}
-            className={`${inputBase} ${focused === "budget" ? inputFocus : inputIdle}`}
+            className={`${inputBase} min-h-[44px] py-3 pr-10 appearance-none ${focused === "budget" ? inputFocus : inputIdle}`}
+            style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%237A7067' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E")`, backgroundRepeat: "no-repeat", backgroundPosition: "right 12px center" }}
           >
             <option value="">Select one...</option>
-            <option value="2500-5000">$2,500 - $5,000</option>
-            <option value="5000-10000">$5,000 - $10,000</option>
-            <option value="10000+">$10,000+</option>
+            <option value="starter">Starter — $297/mo</option>
+            <option value="growth">Growth — $697/mo</option>
+            <option value="partner">Partner — $1,497/mo</option>
             <option value="unsure">Not sure yet</option>
           </select>
         </div>
@@ -203,10 +199,7 @@ export function ContactForm() {
           }
           onFocus={() => setFocused("message")}
           onBlur={() => setFocused(null)}
-          className={`${inputBase} resize-none ${focused === "message" ? inputFocus : inputIdle} ${
-            focused === "message" || formData.message ? "pt-5 pb-2" : ""
-          }`}
-          placeholder={focused === "message" || formData.message ? "" : "Tell me about your project..."}
+          className={`${inputBase} pt-5 pb-2 resize-none ${focused === "message" ? inputFocus : inputIdle}`}
         />
         <span className="absolute bottom-3 right-4 text-[10px] text-[var(--color-text-muted)]/40">
           {formData.message.length}/2000
