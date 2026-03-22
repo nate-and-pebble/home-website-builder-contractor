@@ -15,7 +15,7 @@ export function Services() {
           What I Build
         </h2>
         <p className="text-[var(--color-text-muted)] max-w-md mx-auto">
-          Concept to launch. Every aspect of your web presence, handled.
+          Concept to launch. Every aspect handled.
         </p>
       </div>
       <div className="grid sm:grid-cols-2 gap-4 max-w-4xl mx-auto">
@@ -26,7 +26,7 @@ export function Services() {
       <div className="text-center mt-10">
         <a
           href="#contact"
-          className="inline-block px-6 py-3 rounded-lg border-2 border-[var(--color-accent)] text-[var(--color-accent)] text-sm font-semibold transition-all duration-300 hover:bg-[var(--color-accent)] hover:text-white hover:-translate-y-0.5"
+          className="inline-block px-8 py-3.5 rounded-xl border-2 border-[var(--color-accent)] text-[var(--color-accent)] text-sm font-bold tracking-wide transition-all duration-300 hover:bg-[var(--color-accent)] hover:text-white hover:-translate-y-0.5"
         >
           Ready to build? Let&apos;s talk &rarr;
         </a>

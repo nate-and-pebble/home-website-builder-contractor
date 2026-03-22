@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { ChevronDown } from "lucide-react";
 import type { FAQ } from "@/data/faq";
 
 interface FAQItemProps {
@@ -12,22 +13,19 @@ export function FAQItem({ item }: FAQItemProps) {
   const [open, setOpen] = useState(false);
 
   return (
-    <div className="border-b border-[var(--color-border)]">
+    <div className="border-b border-[var(--color-border)] last:border-b-0">
       <button
         onClick={() => setOpen(!open)}
-        className="w-full flex items-center justify-between py-5 text-left gap-4"
+        className="w-full flex items-center justify-between py-5 px-1 text-left gap-4 group transition-colors hover:text-[var(--color-accent)]"
         aria-expanded={open}
       >
         <span className="text-base font-semibold">{item.question}</span>
         <span
-          className="shrink-0 text-[var(--color-text-muted)] transition-transform duration-200"
-          style={{ transform: open ? "rotate(45deg)" : "rotate(0deg)" }}
+          className="shrink-0 w-8 h-8 rounded-lg bg-[var(--color-accent-light)] flex items-center justify-center text-[var(--color-accent)] transition-all duration-300 group-hover:bg-[var(--color-accent)] group-hover:text-white"
+          style={{ transform: open ? "rotate(180deg)" : "rotate(0deg)", transition: "transform 0.3s cubic-bezier(.22,1,.36,1), background-color 0.3s, color 0.3s" }}
           aria-hidden="true"
         >
-          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="2">
-            <line x1="10" y1="4" x2="10" y2="16" />
-            <line x1="4" y1="10" x2="16" y2="10" />
-          </svg>
+          <ChevronDown size={16} />
         </span>
       </button>
       <AnimatePresence initial={false}>
@@ -36,12 +34,16 @@ export function FAQItem({ item }: FAQItemProps) {
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.25, ease: "easeInOut" }}
+            transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
             className="overflow-hidden"
           >
-            <p className="pb-5 text-sm text-[var(--color-text-muted)] leading-relaxed">
-              {item.answer}
-            </p>
+            <div className="pb-5 px-1">
+              <div className="bg-[var(--color-accent-light)]/50 rounded-xl p-4">
+                <p className="text-sm text-[var(--color-text-muted)] leading-relaxed">
+                  {item.answer}
+                </p>
+              </div>
+            </div>
           </motion.div>
         )}
       </AnimatePresence>

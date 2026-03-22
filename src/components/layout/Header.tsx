@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { Sun, Moon, Menu, X } from "lucide-react";
 import { useTheme } from "@/components/layout/ThemeProvider";
 
 const navLinks = [
@@ -57,28 +58,12 @@ export function Header({ visible }: { visible: boolean }) {
             className="w-8 h-8 rounded-lg flex items-center justify-center text-[var(--color-text-muted)] hover:text-[var(--color-text)] transition-colors"
             aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
           >
-            {theme === "dark" ? (
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <circle cx="12" cy="12" r="5" />
-                <line x1="12" y1="1" x2="12" y2="3" />
-                <line x1="12" y1="21" x2="12" y2="23" />
-                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
-                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
-                <line x1="1" y1="12" x2="3" y2="12" />
-                <line x1="21" y1="12" x2="23" y2="12" />
-                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
-                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
-              </svg>
-            ) : (
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
-              </svg>
-            )}
+            {theme === "dark" ? <Sun size={16} /> : <Moon size={16} />}
           </button>
           {scrolled && (
             <a
               href="#contact"
-              className="px-4 py-2 rounded-lg bg-[var(--color-accent)] text-white text-sm font-semibold transition-all duration-300 hover:bg-[var(--color-accent-hover)] hover:-translate-y-0.5 hover:shadow-[0_4px_16px_rgba(184,101,58,0.3)]"
+              className="px-5 py-2.5 rounded-xl bg-[var(--color-accent)] text-white text-sm font-bold tracking-wide transition-all duration-300 hover:bg-[var(--color-accent-hover)] hover:-translate-y-0.5 hover:shadow-[0_8px_24px_rgba(184,101,58,0.35)]"
             >
               Get in Touch
             </a>
@@ -92,7 +77,7 @@ export function Header({ visible }: { visible: boolean }) {
             className="w-8 h-8 rounded-lg flex items-center justify-center text-[var(--color-text-muted)]"
             aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
           >
-            {theme === "dark" ? "\u2600" : "\u263D"}
+            {theme === "dark" ? <Sun size={16} /> : <Moon size={16} />}
           </button>
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
@@ -100,7 +85,7 @@ export function Header({ visible }: { visible: boolean }) {
             aria-label="Toggle menu"
             aria-expanded={mobileOpen}
           >
-            {mobileOpen ? "\u2715" : "\u2630"}
+            {mobileOpen ? <X size={18} /> : <Menu size={18} />}
           </button>
         </div>
       </nav>
@@ -121,7 +106,7 @@ export function Header({ visible }: { visible: boolean }) {
           <a
             href="#contact"
             onClick={() => setMobileOpen(false)}
-            className="block mt-2 py-2 text-[var(--color-accent)] font-semibold"
+            className="block mt-2 py-2 text-[var(--color-accent)] font-bold"
           >
             Get in Touch
           </a>

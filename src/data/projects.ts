@@ -23,14 +23,14 @@ export const projects: Project[] = [
     id: "clay-and-kiln",
     title: "Clay & Kiln — Artisan Pottery E-Commerce",
     description:
-      "A full-featured online store for a ceramic artist selling handmade pottery, with inventory management, custom glaze filtering, and a built-in waitlist for limited drops.",
+      "Full-featured online store for handmade pottery with custom glaze filtering and limited-drop waitlists.",
     longDescription:
       "Clay & Kiln is a boutique e-commerce platform built for Portland-based ceramicist Lena Morales. The site needed to do more than sell pots — it had to convey the tactile, handmade quality of her work while handling real-time inventory for pieces that often sell out in minutes. I built a custom product filtering system that lets buyers search by glaze type, firing method, and vessel shape. The waitlist feature sends automatic notifications when limited-edition collections go live, and the admin dashboard gives Lena full control over product listings, pricing, and order fulfillment without touching a line of code.",
-    image: "/projects/clay-and-kiln.jpg",
+    image: "https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?w=600&h=340&fit=crop&q=80",
     url: "https://clayandkiln.com",
     clientType: "Small Business / Artist",
     outcome:
-      "Online revenue increased 340% in the first six months. Average drop sellout time went from 4 hours to under 12 minutes thanks to the waitlist notification system.",
+      "+340% online revenue in 6 months. Drops sell out in under 12 minutes.",
     testimonial: {
       quote:
         "Nate understood my work in a way no other developer has. The site feels like an extension of my studio — and my sales have never been better.",
@@ -44,14 +44,14 @@ export const projects: Project[] = [
     id: "clearpath-mortgage",
     title: "ClearPath — Mortgage Planning Tool",
     description:
-      "An interactive mortgage calculator and planning dashboard that helps first-time homebuyers understand their borrowing power, monthly costs, and long-term equity.",
+      "Interactive mortgage calculator helping first-time buyers understand borrowing power and equity.",
     longDescription:
       "ClearPath Mortgage needed a web tool that could demystify the homebuying process for their clients. I designed and built a multi-step planning wizard that walks users through income verification, debt-to-income calculations, and real-time rate comparisons. The tool generates a personalized affordability report that users can save, print, or share directly with a ClearPath loan officer. On the back end, the application integrates with third-party rate APIs and stores anonymized session data so the ClearPath team can identify trends in what buyers are searching for.",
-    image: "/projects/clearpath-mortgage.jpg",
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=340&fit=crop&q=80",
     url: "https://clearpathmortgage.com/planner",
     clientType: "Financial Services",
     outcome:
-      "Lead conversion from the planning tool was 2.8x higher than the previous static contact form. Average session duration on the tool page exceeded 7 minutes.",
+      "2.8x higher lead conversion. 7+ minute average session duration.",
     testimonial: {
       quote:
         "Our clients keep telling us the planner is the reason they chose us over other lenders. It builds trust before we ever pick up the phone.",
@@ -72,14 +72,14 @@ export const projects: Project[] = [
     id: "tavola-restaurant",
     title: "Tavola — Farm-to-Table Restaurant",
     description:
-      "A warm, image-driven website for an upscale Italian restaurant featuring online reservations, a seasonal menu system, and private event booking.",
+      "Image-driven site for an upscale Italian restaurant with online reservations and seasonal menus.",
     longDescription:
       "Tavola is a farm-to-table Italian restaurant in Austin that needed a site matching the quality of their food. The previous site was a dated WordPress template that buried the menu three clicks deep and had no reservation flow. I rebuilt everything from scratch with a focus on speed, gorgeous food photography, and a frictionless reservation experience powered by a custom OpenTable integration. The seasonal menu is managed through a headless CMS, so the kitchen team can update dishes, prices, and availability on the fly. I also built a private dining inquiry form that feeds directly into the events coordinator's calendar.",
-    image: "/projects/tavola-restaurant.jpg",
+    image: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&h=340&fit=crop&q=80",
     url: "https://tavolaaustin.com",
     clientType: "Restaurant / Hospitality",
     outcome:
-      "Online reservations increased 185% within three months of launch. Bounce rate dropped from 68% to 22%, and the site loads in under 1.5 seconds on mobile.",
+      "+185% online reservations. Bounce rate dropped from 68% to 22%.",
     techUsed: [
       "Astro",
       "Tailwind CSS",
@@ -93,14 +93,14 @@ export const projects: Project[] = [
     id: "pulseboard-saas",
     title: "PulseBoard — SaaS Analytics Dashboard",
     description:
-      "A real-time analytics dashboard for a B2B SaaS startup, featuring customizable widgets, team-level permissions, and automated PDF reporting.",
+      "Real-time analytics dashboard with customizable widgets, team permissions, and automated PDF reports.",
     longDescription:
       "PulseBoard was a funded startup with a solid product but no way for customers to visualize their data. They needed a dashboard that felt native to their platform — not a bolted-on third-party embed. I built a modular widget system where end users can drag, resize, and configure charts, tables, and KPI cards. Role-based access control lets account admins decide what each team member can see. The automated reporting engine generates branded PDF summaries on a weekly or monthly cadence and delivers them via email. The whole front end communicates with PulseBoard's existing REST API, so there was zero disruption to their back-end infrastructure.",
-    image: "/projects/pulseboard-dashboard.jpg",
+    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=340&fit=crop&q=80",
     url: "https://pulseboardapp.com",
     clientType: "B2B SaaS Startup",
     outcome:
-      "Customer retention improved by 18% after the dashboard launch. Support tickets related to data questions dropped by over 40%.",
+      "+18% customer retention. Support tickets dropped 40%.",
     testimonial: {
       quote:
         "We interviewed five agencies and three freelancers. Nate was the only one who asked about our customers before asking about our tech stack. That told us everything.",
@@ -122,14 +122,14 @@ export const projects: Project[] = [
     id: "ironform-fitness",
     title: "IronForm — Fitness App Landing Page",
     description:
-      "A high-conversion landing page for a fitness app launch, with animated workout previews, waitlist capture, and deep links to app stores.",
+      "High-conversion landing page with animated previews, waitlist capture, and smart app store links.",
     longDescription:
       "IronForm was preparing to launch their AI-powered workout app and needed a landing page that could build hype, collect emails, and convert visitors into day-one downloads. I created a single-page experience with smooth scroll-triggered animations showing the app in action, an interactive feature carousel, and a waitlist form integrated with their Mailchimp audience. After launch, the page dynamically switched from waitlist mode to download mode with smart links that detect iOS vs. Android and route users to the correct store. The page was built for speed and SEO, scoring 98 on Lighthouse performance.",
-    image: "/projects/ironform-fitness.jpg",
+    image: "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=600&h=340&fit=crop&q=80",
     url: "https://ironformapp.com",
     clientType: "Mobile App / Startup",
     outcome:
-      "Captured over 11,000 waitlist signups pre-launch. Day-one conversion rate from landing page to app download was 38%.",
+      "11,000+ waitlist signups. 38% day-one conversion rate.",
     testimonial: {
       quote:
         "The landing page set the tone for our entire brand. People kept saying the site alone made them trust the app before they even tried it.",

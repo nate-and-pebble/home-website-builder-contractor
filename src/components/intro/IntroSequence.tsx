@@ -98,7 +98,7 @@ export function IntroSequence({ onComplete }: IntroSequenceProps) {
           className="fixed inset-0 z-50 flex items-center justify-center bg-[#2C2825]"
           aria-hidden="true"
         >
-          <span className="font-display text-4xl md:text-6xl lg:text-7xl text-[#FAF7F2] select-none italic">
+          <span className="font-mono text-4xl md:text-6xl lg:text-7xl text-[#FAF7F2] select-none">
             {PHRASE.slice(0, displayedChars)}
             {phase === "typing" && (
               <span className="animate-blink ml-0.5">|</span>

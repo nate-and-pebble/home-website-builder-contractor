@@ -1,6 +1,14 @@
 "use client";
 
+import { Monitor, Wrench, ShoppingCart, Cog } from "lucide-react";
 import type { Service } from "@/data/services";
+
+const iconMap: Record<string, React.ComponentType<{ size?: number; className?: string }>> = {
+  monitor: Monitor,
+  wrench: Wrench,
+  "shopping-cart": ShoppingCart,
+  cog: Cog,
+};
 
 interface ServiceCardProps {
   service: Service;
@@ -8,13 +16,15 @@ interface ServiceCardProps {
 }
 
 export function ServiceCard({ service, index }: ServiceCardProps) {
+  const Icon = iconMap[service.icon] || Monitor;
+
   return (
     <div
       className="group rounded-2xl bg-[var(--color-surface)] border border-[var(--color-border)] p-6 transition-all duration-400 hover:-translate-y-1 hover:shadow-[0_12px_32px_rgba(44,40,37,0.14)]"
       style={{ transition: "transform 0.4s cubic-bezier(.22,1,.36,1), box-shadow 0.4s ease", animationDelay: `${index * 80}ms` }}
     >
-      <div className="w-10 h-10 rounded-xl bg-[var(--color-secondary-light)] flex items-center justify-center text-xl mb-4 group-hover:bg-[var(--color-secondary)] group-hover:text-white transition-colors duration-300" aria-hidden="true">
-        {service.icon}
+      <div className="w-10 h-10 rounded-xl bg-[var(--color-secondary-light)] flex items-center justify-center mb-4 group-hover:bg-[var(--color-secondary)] group-hover:text-white transition-colors duration-300 text-[var(--color-secondary)]" aria-hidden="true">
+        <Icon size={20} />
       </div>
       <h3 className="text-lg font-display font-semibold mb-1.5">
         {service.title}

@@ -20,7 +20,7 @@ export function Portfolio() {
           Selected Work
         </h2>
         <p className="text-[var(--color-text-muted)] max-w-md mx-auto">
-          Real projects. Measurable results. Click for the full case study.
+          Real projects. Measurable results.
         </p>
       </div>
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
@@ -37,7 +37,7 @@ export function Portfolio() {
       <div className="text-center mt-10">
         <a
           href="#contact"
-          className="inline-block px-6 py-3 rounded-lg border-2 border-[var(--color-accent)] text-[var(--color-accent)] text-sm font-semibold transition-all duration-300 hover:bg-[var(--color-accent)] hover:text-white hover:-translate-y-0.5"
+          className="inline-block px-8 py-3.5 rounded-xl border-2 border-[var(--color-accent)] text-[var(--color-accent)] text-sm font-bold tracking-wide transition-all duration-300 hover:bg-[var(--color-accent)] hover:text-white hover:-translate-y-0.5"
         >
           Want results like these? Let&apos;s talk &rarr;
         </a>

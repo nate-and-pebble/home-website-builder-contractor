@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { ScrollIndicator } from "@/components/ui/ScrollIndicator";
 
@@ -51,19 +52,18 @@ export function Hero({ visible }: { visible: boolean }) {
             variants={item}
             className="text-lg text-[var(--color-text-muted)] max-w-md mb-8 leading-relaxed"
           >
-            I design and build high-performance websites that turn visitors into
-            customers — shipped in weeks, not months.
+            High-performance sites shipped in weeks, not months.
           </motion.p>
           <motion.div variants={item} className="flex flex-wrap gap-3">
             <a
               href="#contact"
-              className="px-7 py-3 rounded-lg bg-[var(--color-accent)] text-white font-semibold text-sm transition-all duration-300 hover:bg-[var(--color-accent-hover)] hover:-translate-y-0.5 hover:shadow-[0_4px_16px_rgba(184,101,58,0.3)]"
+              className="px-8 py-3.5 rounded-xl bg-[var(--color-accent)] text-white font-bold text-sm tracking-wide transition-all duration-300 hover:bg-[var(--color-accent-hover)] hover:-translate-y-0.5 hover:shadow-[0_8px_24px_rgba(184,101,58,0.35)]"
             >
               Start a Project
             </a>
             <a
               href="#work"
-              className="px-7 py-3 rounded-lg border-2 border-[var(--color-accent)] text-[var(--color-accent)] font-semibold text-sm transition-all duration-300 hover:bg-[var(--color-accent)] hover:text-white hover:-translate-y-0.5"
+              className="px-8 py-3.5 rounded-xl border-2 border-[var(--color-accent)] text-[var(--color-accent)] font-bold text-sm tracking-wide transition-all duration-300 hover:bg-[var(--color-accent)] hover:text-white hover:-translate-y-0.5"
             >
               See My Work
             </a>
@@ -98,25 +98,15 @@ export function Hero({ visible }: { visible: boolean }) {
           transition={{ duration: 0.6, delay: 0.3 }}
           className="relative hidden lg:block"
         >
-          <div className="aspect-[4/5] rounded-3xl bg-[var(--color-surface)] border border-[var(--color-border)] overflow-hidden relative">
-            {/* Decorative gradient */}
-            <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-accent)]/5 to-transparent" />
-            <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 text-[var(--color-text-muted)]">
-              <svg
-                width="48"
-                height="48"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1"
-                className="opacity-40"
-              >
-                <circle cx="12" cy="8" r="4" />
-                <path d="M4 20c0-4 4-7 8-7s8 3 8 7" />
-              </svg>
-              <span className="text-sm font-medium">Nate</span>
-              <span className="text-xs">Colorado</span>
-            </div>
+          <div className="aspect-[4/5] rounded-3xl overflow-hidden relative">
+            <Image
+              src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=600&h=750&fit=crop&q=80"
+              alt="Developer workspace"
+              fill
+              className="object-cover"
+              sizes="(max-width: 1024px) 0vw, 40vw"
+              priority
+            />
           </div>
           {/* Floating accent card */}
           <div className="absolute -bottom-4 -left-4 bg-[var(--color-surface)] border border-[var(--color-border)] rounded-2xl p-4 shadow-lg">
