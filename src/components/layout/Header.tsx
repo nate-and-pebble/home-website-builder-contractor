@@ -78,7 +78,7 @@ export function Header({ visible }: { visible: boolean }) {
           {scrolled && (
             <a
               href="#contact"
-              className="px-4 py-2 rounded-lg bg-[var(--color-accent)] text-white text-sm font-semibold transition-all duration-200 hover:bg-[var(--color-accent-hover)] hover:scale-105"
+              className="px-4 py-2 rounded-lg bg-[var(--color-accent)] text-white text-sm font-semibold transition-all duration-300 hover:bg-[var(--color-accent-hover)] hover:-translate-y-0.5 hover:shadow-[0_4px_16px_rgba(184,101,58,0.3)]"
             >
               Get in Touch
             </a>

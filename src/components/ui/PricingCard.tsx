@@ -9,11 +9,12 @@ interface PricingCardProps {
 export function PricingCard({ tier }: PricingCardProps) {
   return (
     <div
-      className={`relative rounded-2xl border p-7 flex flex-col transition-all duration-300 hover:-translate-y-1 ${
+      className={`relative rounded-2xl border p-7 flex flex-col hover:-translate-y-1 ${
         tier.highlighted
-          ? "bg-[var(--color-accent)]/5 border-[var(--color-accent)]/40 shadow-lg shadow-[var(--color-accent)]/10"
+          ? "bg-[var(--color-accent-light)] border-[var(--color-accent)]/40 shadow-[0_4px_20px_rgba(44,40,37,0.1)]"
           : "bg-[var(--color-surface)] border-[var(--color-border)]"
       }`}
+      style={{ transition: "transform 0.4s cubic-bezier(.22,1,.36,1), box-shadow 0.4s ease" }}
     >
       {tier.highlighted && (
         <span className="absolute -top-3 left-1/2 -translate-x-1/2 text-xs font-semibold px-3 py-1 rounded-full bg-[var(--color-accent)] text-white">
@@ -42,10 +43,10 @@ export function PricingCard({ tier }: PricingCardProps) {
       </ul>
       <a
         href="#contact"
-        className={`block text-center py-3 px-6 rounded-xl font-semibold text-sm transition-all duration-200 ${
+        className={`block text-center py-3 px-6 rounded-lg font-semibold text-sm transition-all duration-300 ${
           tier.highlighted
-            ? "bg-[var(--color-accent)] text-white hover:bg-[var(--color-accent-hover)] hover:scale-105 hover:shadow-lg"
-            : "border border-[var(--color-border)] hover:border-[var(--color-accent)] hover:text-[var(--color-accent)]"
+            ? "bg-[var(--color-accent)] text-white hover:bg-[var(--color-accent-hover)] hover:-translate-y-0.5 hover:shadow-[0_4px_16px_rgba(184,101,58,0.3)]"
+            : "border-2 border-[var(--color-accent)] text-[var(--color-accent)] hover:bg-[var(--color-accent)] hover:text-white hover:-translate-y-0.5"
         }`}
       >
         {tier.cta}

@@ -75,7 +75,7 @@ export function ContactForm() {
           required
           value={formData.name}
           onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-          className="w-full px-4 py-3 rounded-xl bg-[var(--color-surface)] border border-[var(--color-border)] text-[var(--color-text)] placeholder:text-[var(--color-text-muted)]/50 transition-colors focus:border-[var(--color-accent)]"
+          className="w-full px-4 py-3 rounded-lg bg-[var(--color-bg)] border border-[var(--color-border)] text-[var(--color-text)] placeholder:text-[var(--color-text-muted)]/50 transition-colors focus:border-[var(--color-accent)]"
           placeholder="Your name"
         />
       </div>
@@ -90,7 +90,7 @@ export function ContactForm() {
           required
           value={formData.email}
           onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-          className="w-full px-4 py-3 rounded-xl bg-[var(--color-surface)] border border-[var(--color-border)] text-[var(--color-text)] placeholder:text-[var(--color-text-muted)]/50 transition-colors focus:border-[var(--color-accent)]"
+          className="w-full px-4 py-3 rounded-lg bg-[var(--color-bg)] border border-[var(--color-border)] text-[var(--color-text)] placeholder:text-[var(--color-text-muted)]/50 transition-colors focus:border-[var(--color-accent)]"
           placeholder="you@example.com"
         />
       </div>
@@ -109,7 +109,7 @@ export function ContactForm() {
             onChange={(e) =>
               setFormData({ ...formData, projectType: e.target.value })
             }
-            className="w-full px-4 py-3 rounded-xl bg-[var(--color-surface)] border border-[var(--color-border)] text-[var(--color-text)] transition-colors focus:border-[var(--color-accent)]"
+            className="w-full px-4 py-3 rounded-lg bg-[var(--color-bg)] border border-[var(--color-border)] text-[var(--color-text)] transition-colors focus:border-[var(--color-accent)]"
           >
             <option value="">Select one...</option>
             <option value="new">New Website</option>
@@ -132,7 +132,7 @@ export function ContactForm() {
             onChange={(e) =>
               setFormData({ ...formData, budget: e.target.value })
             }
-            className="w-full px-4 py-3 rounded-xl bg-[var(--color-surface)] border border-[var(--color-border)] text-[var(--color-text)] transition-colors focus:border-[var(--color-accent)]"
+            className="w-full px-4 py-3 rounded-lg bg-[var(--color-bg)] border border-[var(--color-border)] text-[var(--color-text)] transition-colors focus:border-[var(--color-accent)]"
           >
             <option value="">Select one...</option>
             <option value="2500-5000">$2,500 – $5,000</option>
@@ -155,7 +155,7 @@ export function ContactForm() {
           onChange={(e) =>
             setFormData({ ...formData, message: e.target.value })
           }
-          className="w-full px-4 py-3 rounded-xl bg-[var(--color-surface)] border border-[var(--color-border)] text-[var(--color-text)] placeholder:text-[var(--color-text-muted)]/50 transition-colors focus:border-[var(--color-accent)] resize-none"
+          className="w-full px-4 py-3 rounded-lg bg-[var(--color-bg)] border border-[var(--color-border)] text-[var(--color-text)] placeholder:text-[var(--color-text-muted)]/50 transition-colors focus:border-[var(--color-accent)] resize-none"
           placeholder="Tell me about your project..."
         />
       </div>
@@ -163,7 +163,7 @@ export function ContactForm() {
       <button
         type="submit"
         disabled={status === "sending"}
-        className="w-full py-3 px-6 rounded-xl bg-[var(--color-accent)] text-white font-semibold text-sm transition-all duration-200 hover:bg-[var(--color-accent-hover)] hover:scale-[1.02] hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
+        className="w-full py-3 px-6 rounded-lg bg-[var(--color-accent)] text-white font-semibold text-sm transition-all duration-300 hover:bg-[var(--color-accent-hover)] hover:-translate-y-0.5 hover:shadow-[0_4px_16px_rgba(184,101,58,0.3)] disabled:opacity-50 disabled:cursor-not-allowed"
       >
         {status === "sending" ? "Sending..." : "Send Message"}
       </button>

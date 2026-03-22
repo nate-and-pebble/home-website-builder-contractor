@@ -38,8 +38,7 @@ export function IntroSequence({ onComplete }: IntroSequenceProps) {
     if (phase !== "typing") return;
     if (displayedChars >= PHRASE.length) {
       setPhase("holding");
-      const t = setTimeout(() => setPhase("exiting"), HOLD_AFTER_TYPE);
-      return () => clearTimeout(t);
+      return;
     }
     const jitter = Math.random() * JITTER * 2 - JITTER;
     const t = setTimeout(
@@ -49,12 +48,31 @@ export function IntroSequence({ onComplete }: IntroSequenceProps) {
     return () => clearTimeout(t);
   }, [displayedChars, phase]);
 
-  // When phase becomes "exiting", start removing from DOM after exit animation
+  // Hold → exit transition (separate effect so cleanup doesn't kill the timeout)
+  useEffect(() => {
+    if (phase !== "holding") return;
+    const t = setTimeout(() => setPhase("exiting"), HOLD_AFTER_TYPE);
+    return () => clearTimeout(t);
+  }, [phase]);
+
+  // Auto-close: when phase becomes "exiting", trigger exit animation
   useEffect(() => {
     if (phase === "exiting") {
       setVisible(false);
     }
   }, [phase]);
+
+  // Safety net: force completion if AnimatePresence onExitComplete doesn't fire
+  useEffect(() => {
+    if (phase === "exiting") {
+      const t = setTimeout(() => {
+        setPhase("done");
+        sessionStorage.setItem("hasSeenIntro", "1");
+        onComplete();
+      }, (EXIT_DURATION + 0.2) * 1000);
+      return () => clearTimeout(t);
+    }
+  }, [phase, onComplete]);
 
   const handleExitComplete = useCallback(() => {
     setPhase("done");
@@ -77,11 +95,10 @@ export function IntroSequence({ onComplete }: IntroSequenceProps) {
           initial={{ y: 0 }}
           exit={{ y: "100vh" }}
           transition={{ duration: EXIT_DURATION, ease: "easeInOut" }}
-          className="fixed inset-0 z-50 flex items-center justify-center"
-          style={{ backgroundColor: "#0a0a0a" }}
+          className="fixed inset-0 z-50 flex items-center justify-center bg-[#2C2825]"
           aria-hidden="true"
         >
-          <span className="font-mono text-4xl md:text-6xl lg:text-7xl text-white select-none">
+          <span className="font-display text-4xl md:text-6xl lg:text-7xl text-[#FAF7F2] select-none italic">
             {PHRASE.slice(0, displayedChars)}
             {phase === "typing" && (
               <span className="animate-blink ml-0.5">|</span>

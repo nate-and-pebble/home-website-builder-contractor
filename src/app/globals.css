@@ -1,34 +1,53 @@
 @import "tailwindcss";
 
 @theme {
-  --color-bg: #0a0a0a;
-  --color-bg-light: #ffffff;
-  --color-surface: #141414;
-  --color-surface-light: #f5f5f5;
-  --color-surface-hover: #1a1a1a;
-  --color-surface-hover-light: #ebebeb;
-  --color-text: #f0f0f0;
-  --color-text-light: #1a1a1a;
-  --color-text-muted: #888888;
-  --color-text-muted-light: #666666;
-  --color-accent: #3b82f6;
-  --color-accent-hover: #2563eb;
-  --color-border: #222222;
-  --color-border-light: #e0e0e0;
+  /* Light theme — warm earth palette inspired by Thrown Studio pottery */
+  --color-bg: #FAF7F2;
+  --color-surface: #FFFDF9;
+  --color-surface-hover: #E8DDD3;
+  --color-text: #3D3733;
+  --color-text-muted: #7A7067;
+  --color-accent: #B8653A;
+  --color-accent-hover: #9A5430;
+  --color-accent-light: #F5EBE3;
+  --color-border: #E8DDD3;
 
-  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
-  --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  /* Secondary accent — muted sage green */
+  --color-secondary: #5B7B6A;
+  --color-secondary-light: #E8F0EB;
+
+  /* Dark theme values */
+  --color-bg-dark: #2C2825;
+  --color-surface-dark: #3D3733;
+  --color-surface-hover-dark: #4A433D;
+  --color-text-dark: #FAF7F2;
+  --color-text-muted-dark: #B8AFA5;
+  --color-accent-dark: #D4835A;
+  --color-accent-hover-dark: #B8653A;
+  --color-accent-light-dark: #3D2E24;
+  --color-border-dark: #4A433D;
+
+  --font-sans: "Inter", -apple-system, ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Playfair Display", Georgia, serif;
   --font-mono: "JetBrains Mono", ui-monospace, monospace;
+
+  /* Shadows — pottery design system */
+  --shadow-sm: 0 1px 3px rgba(44, 40, 37, 0.08);
+  --shadow-md: 0 4px 20px rgba(44, 40, 37, 0.1);
+  --shadow-lift: 0 12px 32px rgba(44, 40, 37, 0.14);
 }
 
-/* Light theme overrides */
-[data-theme="light"] {
-  --color-bg: var(--color-bg-light);
-  --color-surface: var(--color-surface-light);
-  --color-surface-hover: var(--color-surface-hover-light);
-  --color-text: var(--color-text-light);
-  --color-text-muted: var(--color-text-muted-light);
-  --color-border: var(--color-border-light);
+/* Dark theme overrides */
+[data-theme="dark"] {
+  --color-bg: var(--color-bg-dark);
+  --color-surface: var(--color-surface-dark);
+  --color-surface-hover: var(--color-surface-hover-dark);
+  --color-text: var(--color-text-dark);
+  --color-text-muted: var(--color-text-muted-dark);
+  --color-accent: var(--color-accent-dark);
+  --color-accent-hover: var(--color-accent-hover-dark);
+  --color-accent-light: var(--color-accent-light-dark);
+  --color-border: var(--color-border-dark);
 }
 
 * {
@@ -38,13 +57,15 @@
 }
 
 html {
-  scroll-behavior: auto; /* Lenis handles smooth scroll */
+  scroll-behavior: auto;
 }
 
 body {
   background-color: var(--color-bg);
   color: var(--color-text);
   font-family: var(--font-sans);
+  line-height: 1.6;
+  font-weight: 400;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -105,7 +126,7 @@ body {
 
 /* Scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 6px;
 }
 
 ::-webkit-scrollbar-track {
@@ -114,9 +135,33 @@ body {
 
 ::-webkit-scrollbar-thumb {
   background: var(--color-border);
-  border-radius: 4px;
+  border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
   background: var(--color-text-muted);
+}
+
+/* Subtle grain overlay for organic texture */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  opacity: 0.025;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  background-size: 180px;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  html {
+    scroll-behavior: auto;
+  }
 }

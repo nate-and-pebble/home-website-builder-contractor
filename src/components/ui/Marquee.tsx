@@ -22,7 +22,7 @@ export function Marquee({ items, speed = 30 }: MarqueeProps) {
         {items.map((item) => (
           <span
             key={item}
-            className="text-sm text-[var(--color-text-muted)] font-mono"
+            className="text-sm text-white/60 font-mono"
           >
             {item}
           </span>
@@ -44,7 +44,7 @@ export function Marquee({ items, speed = 30 }: MarqueeProps) {
         {doubled.map((item, i) => (
           <span
             key={`${item}-${i}`}
-            className="text-sm text-[var(--color-text-muted)] font-mono shrink-0"
+            className="text-sm text-white/60 font-mono shrink-0"
           >
             {item}
           </span>
