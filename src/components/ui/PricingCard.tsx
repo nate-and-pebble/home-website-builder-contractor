@@ -12,9 +12,9 @@ interface PricingCardProps {
 export function PricingCard({ tier, billing }: PricingCardProps) {
   const isAnnual = billing === "annual";
   const yearlyRetainer = tier.monthlyPrice * 12;
-  const originalTotal = yearlyRetainer + tier.setupFee;
-  const discountedTotal = Math.round(originalTotal * 0.85);
-  const savings = originalTotal - discountedTotal;
+  const discountedRetainer = Math.round(yearlyRetainer * 0.85);
+  const annualTotal = discountedRetainer + tier.setupFee;
+  const savings = yearlyRetainer - discountedRetainer;
 
   return (
     <div
@@ -40,17 +40,20 @@ export function PricingCard({ tier, billing }: PricingCardProps) {
         {isAnnual ? (
           <>
             <p className="text-2xl font-display font-bold text-[var(--color-accent)]">
-              ${discountedTotal.toLocaleString()}
+              ${annualTotal.toLocaleString()}
               <span className="text-sm font-normal text-[var(--color-text-muted)]">
                 /yr
               </span>
             </p>
-            <p className="text-sm text-[var(--color-text-muted)] mt-1">
+            <p className="text-xs text-[var(--color-text-muted)] mt-1 leading-relaxed">
               <span className="line-through opacity-60">
-                ${originalTotal.toLocaleString()}
-              </span>
-              <span className="ml-2 inline-block text-xs font-bold px-2 py-0.5 rounded-full bg-green-100 text-green-700">
-                Save ${savings.toLocaleString()}
+                ${yearlyRetainer.toLocaleString()}
+              </span>{" "}
+              ${discountedRetainer.toLocaleString()} retainer + {tier.setupFeeDisplay} setup
+            </p>
+            <p className="mt-1">
+              <span className="inline-block text-xs font-bold px-2 py-0.5 rounded-full bg-green-100 text-green-700">
+                Save ${savings.toLocaleString()} on retainer
               </span>
             </p>
           </>
@@ -68,7 +71,7 @@ export function PricingCard({ tier, billing }: PricingCardProps) {
       <div className="mb-6">
         {isAnnual ? (
           <p className="text-xs text-[var(--color-text-muted)] mt-1">
-            Includes {tier.setupFeeDisplay} setup fee
+            Setup fee included in total &middot; discount applies to retainer only
           </p>
         ) : (
           <p className="text-sm font-medium text-[var(--color-text-muted)]">
