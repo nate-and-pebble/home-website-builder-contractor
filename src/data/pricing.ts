@@ -1,23 +1,20 @@
 export interface PricingTier {
   id: string;
   name: string;
-  price: string;
-  period: string;
+  monthlyPrice: number;
+  setupFee: number;
   description: string;
   features: string[];
   highlighted: boolean;
   cta: string;
 }
 
-export const setupFeeNote =
-  "Flat setup fee for any tier, waived on annual commitment.";
-
 export const pricingTiers: PricingTier[] = [
   {
     id: "starter",
     name: "Starter",
-    price: "$79",
-    period: "/mo",
+    monthlyPrice: 79,
+    setupFee: 499,
     description:
       "Everything you need for a professional, worry-free web presence. Perfect for small businesses that want to look polished without the hassle.",
     features: [
@@ -33,8 +30,8 @@ export const pricingTiers: PricingTier[] = [
   {
     id: "growth",
     name: "Growth",
-    price: "$197",
-    period: "/mo",
+    monthlyPrice: 197,
+    setupFee: 499,
     description:
       "For businesses ready to grow. Everything in Starter plus SEO, analytics, and unlimited content updates to turn your site into a lead-generating machine.",
     features: [
@@ -53,8 +50,8 @@ export const pricingTiers: PricingTier[] = [
   {
     id: "full-presence",
     name: "Full Presence",
-    price: "$447",
-    period: "/mo",
+    monthlyPrice: 447,
+    setupFee: 499,
     description:
       "Your complete digital partner. Everything in Growth plus booking, email marketing, social media, and strategic guidance for maximum impact.",
     features: [
