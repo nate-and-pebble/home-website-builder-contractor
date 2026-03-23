@@ -170,9 +170,9 @@ export function ContactForm() {
             style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%237A7067' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E")`, backgroundRepeat: "no-repeat", backgroundPosition: "right 12px center" }}
           >
             <option value="">Select one...</option>
-            <option value="starter">Starter — $79/mo</option>
-            <option value="growth">Growth — $197/mo</option>
-            <option value="full-presence">Full Presence — $447/mo</option>
+            <option value="starter">Starter — $179/mo</option>
+            <option value="growth">Growth — $397/mo</option>
+            <option value="full-presence">Full Presence — $997/mo</option>
             <option value="unsure">Not sure yet</option>
           </select>
         </div>

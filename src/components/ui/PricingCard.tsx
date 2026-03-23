@@ -11,7 +11,10 @@ interface PricingCardProps {
 
 export function PricingCard({ tier, billing }: PricingCardProps) {
   const isAnnual = billing === "annual";
-  const annualTotal = tier.monthlyPrice * 12;
+  const yearlyRetainer = tier.monthlyPrice * 12;
+  const originalTotal = yearlyRetainer + tier.setupFee;
+  const discountedTotal = Math.round(originalTotal * 0.85);
+  const savings = originalTotal - discountedTotal;
 
   return (
     <div
@@ -37,13 +40,18 @@ export function PricingCard({ tier, billing }: PricingCardProps) {
         {isAnnual ? (
           <>
             <p className="text-2xl font-display font-bold text-[var(--color-accent)]">
-              ${annualTotal.toLocaleString()}
+              ${discountedTotal.toLocaleString()}
               <span className="text-sm font-normal text-[var(--color-text-muted)]">
                 /yr
               </span>
             </p>
-            <p className="text-xs text-[var(--color-text-muted)] mt-1">
-              Annual = 12 months prepaid
+            <p className="text-sm text-[var(--color-text-muted)] mt-1">
+              <span className="line-through opacity-60">
+                ${originalTotal.toLocaleString()}
+              </span>
+              <span className="ml-2 inline-block text-xs font-bold px-2 py-0.5 rounded-full bg-green-100 text-green-700">
+                Save ${savings.toLocaleString()}
+              </span>
             </p>
           </>
         ) : (
@@ -59,17 +67,12 @@ export function PricingCard({ tier, billing }: PricingCardProps) {
       {/* Setup fee */}
       <div className="mb-6">
         {isAnnual ? (
-          <p className="text-sm text-[var(--color-text-muted)]">
-            <span className="line-through opacity-60">
-              ${tier.setupFee} setup fee
-            </span>
-            <span className="ml-2 inline-block text-xs font-bold px-2 py-0.5 rounded-full bg-green-100 text-green-700">
-              Waived
-            </span>
+          <p className="text-xs text-[var(--color-text-muted)] mt-1">
+            Includes {tier.setupFeeDisplay} setup fee
           </p>
         ) : (
           <p className="text-sm font-medium text-[var(--color-text-muted)]">
-            + ${tier.setupFee} one-time setup fee
+            Setup fee: {tier.setupFeeDisplay}
           </p>
         )}
       </div>

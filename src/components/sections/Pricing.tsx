@@ -53,6 +53,9 @@ export function Pricing() {
             }`}
           >
             Annual
+            <span className="ml-1.5 inline-block text-[10px] font-bold px-1.5 py-0.5 rounded-full bg-green-100 text-green-700">
+              15% off
+            </span>
           </button>
         </div>
       </div>

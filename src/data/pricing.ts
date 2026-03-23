@@ -3,6 +3,7 @@ export interface PricingTier {
   name: string;
   monthlyPrice: number;
   setupFee: number;
+  setupFeeDisplay: string;
   description: string;
   features: string[];
   highlighted: boolean;
@@ -13,8 +14,9 @@ export const pricingTiers: PricingTier[] = [
   {
     id: "starter",
     name: "Starter",
-    monthlyPrice: 79,
-    setupFee: 750,
+    monthlyPrice: 179,
+    setupFee: 2500,
+    setupFeeDisplay: "$2,500",
     description:
       "Everything you need for a professional, worry-free web presence. Perfect for small businesses that want to look polished without the hassle.",
     features: [
@@ -30,8 +32,9 @@ export const pricingTiers: PricingTier[] = [
   {
     id: "growth",
     name: "Growth",
-    monthlyPrice: 197,
-    setupFee: 750,
+    monthlyPrice: 397,
+    setupFee: 4000,
+    setupFeeDisplay: "$4,000",
     description:
       "For businesses ready to grow. Everything in Starter plus SEO, analytics, and unlimited content updates to turn your site into a lead-generating machine.",
     features: [
@@ -50,8 +53,9 @@ export const pricingTiers: PricingTier[] = [
   {
     id: "full-presence",
     name: "Full Presence",
-    monthlyPrice: 447,
-    setupFee: 750,
+    monthlyPrice: 997,
+    setupFee: 6000,
+    setupFeeDisplay: "$6,000+",
     description:
       "Your complete digital partner. Everything in Growth plus booking, email marketing, social media, and strategic guidance for maximum impact.",
     features: [
