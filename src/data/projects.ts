@@ -20,24 +20,24 @@ export interface Project {
 
 export const projects: Project[] = [
   {
-    id: "clay-and-kiln",
-    title: "Clay & Kiln — Artisan Pottery E-Commerce",
+    id: "brightspark-creative",
+    title: "BrightSpark — Creative Agency Website",
     description:
-      "Full-featured online store for handmade pottery with custom glaze filtering and limited-drop waitlists.",
+      "Portfolio-driven agency site with case study pages, team bios, and an integrated project inquiry flow.",
     longDescription:
-      "Clay & Kiln is a boutique e-commerce platform built for Portland-based ceramicist Lena Morales. The site needed to do more than sell pots — it had to convey the tactile, handmade quality of her work while handling real-time inventory for pieces that often sell out in minutes. I built a custom product filtering system that lets buyers search by glaze type, firing method, and vessel shape. The waitlist feature sends automatic notifications when limited-edition collections go live, and the admin dashboard gives Lena full control over product listings, pricing, and order fulfillment without touching a line of code.",
-    image: "https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?w=600&h=340&fit=crop&q=80",
-    url: "https://clayandkiln.com",
-    clientType: "Small Business / Artist",
+      "BrightSpark Creative is a Denver-based branding and design agency that had outgrown their Squarespace site. They needed a fast, custom-built portfolio that could showcase case studies with rich media, introduce their growing team, and funnel qualified leads into their sales pipeline. I built a modular case study template system so the team can publish new work without developer involvement, a filterable portfolio grid organized by industry and service type, and a multi-step project inquiry form that captures budget, timeline, and scope before routing to the right account manager. The site loads in under 1.5 seconds and is fully optimized for search.",
+    image: "https://images.unsplash.com/photo-1497215842964-222b430dc094?w=600&h=340&fit=crop&q=80",
+    url: "https://brightsparkcreative.com",
+    clientType: "Creative Agency",
     outcome:
-      "+340% online revenue in 6 months. Drops sell out in under 12 minutes.",
+      "Inbound leads up 65% after launch. Average session duration over 3 minutes.",
     testimonial: {
       quote:
-        "Nate understood my work in a way no other developer has. The site feels like an extension of my studio — and my sales have never been better.",
-      author: "Lena Morales",
-      role: "Owner & Ceramicist, Clay & Kiln",
+        "We needed a site that could keep up with the quality of our work. Nate delivered something we're genuinely proud to send clients to.",
+      author: "Rachel Torres",
+      role: "Managing Director, BrightSpark Creative",
     },
-    techUsed: ["Next.js", "Stripe", "Sanity CMS", "Tailwind CSS", "Vercel"],
+    techUsed: ["Next.js", "Sanity CMS", "Tailwind CSS", "Framer Motion", "Vercel"],
     featured: true,
   },
   {

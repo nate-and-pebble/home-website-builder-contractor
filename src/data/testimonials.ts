@@ -8,12 +8,12 @@ export interface Testimonial {
 
 export const testimonials: Testimonial[] = [
   {
-    id: "testimonial-lena",
+    id: "testimonial-rachel",
     quote:
-      "I'd been burned by two agencies before I found Nate. He actually listened to what I needed, delivered ahead of schedule, and my online sales tripled within six months. I recommend him to every small business owner I know.",
-    author: "Lena Morales",
-    role: "Owner & Ceramicist",
-    company: "Clay & Kiln",
+      "We interviewed several developers and Nate was the only one who treated our rebrand like a strategy project, not just a website build. The new site has completely changed how prospects perceive us — and our inbound pipeline has never been stronger.",
+    author: "Rachel Torres",
+    role: "Managing Director",
+    company: "BrightSpark Creative",
   },
   {
     id: "testimonial-david",

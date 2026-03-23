@@ -113,8 +113,8 @@ export function Hero({ visible }: { visible: boolean }) {
             <div className="text-xs text-[var(--color-text-muted)] mb-1">
               Latest project
             </div>
-            <div className="text-sm font-semibold">Clay & Kiln</div>
-            <div className="text-xs text-[var(--color-accent)]">+340% revenue</div>
+            <div className="text-sm font-semibold">BrightSpark Creative</div>
+            <div className="text-xs text-[var(--color-accent)]">+65% inbound leads</div>
           </div>
         </motion.div>
       </div>

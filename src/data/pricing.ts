@@ -45,7 +45,6 @@ export const pricingTiers: PricingTier[] = [
       "Unlimited content updates (on request)",
       "Shopify payment integration",
       "Local SEO optimization",
-      "Google Analytics dashboard access",
       "Performance optimization",
       "Image optimization",
       "Accessibility monitoring",
