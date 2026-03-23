@@ -54,12 +54,6 @@ export function ProjectCard({ project, onSelect }: ProjectCardProps) {
           className="object-cover transition-transform duration-500 group-hover:scale-105"
           sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
         />
-        {/* Outcome badge */}
-        {project.outcome && (
-          <div className="absolute top-3 right-3 bg-white/90 backdrop-blur-sm text-[10px] font-semibold text-stone-800 px-2.5 py-1 rounded-full shadow-sm">
-            {project.outcome.split(".")[0]}
-          </div>
-        )}
       </div>
       <div className="p-5">
         {project.clientType && (
