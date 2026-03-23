@@ -2,6 +2,7 @@ export interface PricingTier {
   id: string;
   name: string;
   monthlyPrice: number;
+  annualPrice: number;
   setupFee: number;
   setupFeeDisplay: string;
   description: string;
@@ -15,6 +16,7 @@ export const pricingTiers: PricingTier[] = [
     id: "starter",
     name: "Starter",
     monthlyPrice: 179,
+    annualPrice: 1799,
     setupFee: 2500,
     setupFeeDisplay: "$2,500",
     description:
@@ -33,6 +35,7 @@ export const pricingTiers: PricingTier[] = [
     id: "growth",
     name: "Growth",
     monthlyPrice: 397,
+    annualPrice: 3999,
     setupFee: 4000,
     setupFeeDisplay: "$4,000",
     description:
@@ -54,6 +57,7 @@ export const pricingTiers: PricingTier[] = [
     id: "full-presence",
     name: "Full Presence",
     monthlyPrice: 997,
+    annualPrice: 9999,
     setupFee: 6000,
     setupFeeDisplay: "$6,000+",
     description:

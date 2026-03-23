@@ -11,10 +11,9 @@ interface PricingCardProps {
 
 export function PricingCard({ tier, billing }: PricingCardProps) {
   const isAnnual = billing === "annual";
-  const yearlyRetainer = tier.monthlyPrice * 12;
-  const discountedRetainer = Math.round(yearlyRetainer * 0.85);
-  const annualTotal = discountedRetainer + tier.setupFee;
-  const savings = yearlyRetainer - discountedRetainer;
+  const monthlyEquivalent = tier.monthlyPrice * 12;
+  const savings = monthlyEquivalent - tier.annualPrice;
+  const yearOneTotal = tier.annualPrice + tier.setupFee;
 
   return (
     <div
@@ -40,20 +39,23 @@ export function PricingCard({ tier, billing }: PricingCardProps) {
         {isAnnual ? (
           <>
             <p className="text-2xl font-display font-bold text-[var(--color-accent)]">
-              ${annualTotal.toLocaleString()}
+              ${tier.annualPrice.toLocaleString()}
               <span className="text-sm font-normal text-[var(--color-text-muted)]">
                 /yr
               </span>
             </p>
-            <p className="text-xs text-[var(--color-text-muted)] mt-1 leading-relaxed">
-              <span className="line-through opacity-60">
-                ${yearlyRetainer.toLocaleString()}
-              </span>{" "}
-              ${discountedRetainer.toLocaleString()} retainer + {tier.setupFeeDisplay} setup
+            <p className="text-xs text-[var(--color-text-muted)] mt-1">
+              Renews yearly
+            </p>
+            <p className="text-xs text-[var(--color-text-muted)] mt-1">
+              One-time setup fee: {tier.setupFeeDisplay}
+            </p>
+            <p className="text-xs text-[var(--color-text-muted)] mt-1">
+              Year 1 total: ${yearOneTotal.toLocaleString()} incl. setup
             </p>
             <p className="mt-1">
               <span className="inline-block text-xs font-bold px-2 py-0.5 rounded-full bg-green-100 text-green-700">
-                Save ${savings.toLocaleString()} on retainer
+                Save ${savings.toLocaleString()}/yr vs monthly
               </span>
             </p>
           </>
@@ -67,18 +69,15 @@ export function PricingCard({ tier, billing }: PricingCardProps) {
         )}
       </div>
 
-      {/* Setup fee */}
-      <div className="mb-6">
-        {isAnnual ? (
-          <p className="text-xs text-[var(--color-text-muted)] mt-1">
-            Setup fee included in total &middot; discount applies to retainer only
-          </p>
-        ) : (
+      {/* Setup fee (monthly only — annual shows it inline above) */}
+      {!isAnnual && (
+        <div className="mb-6">
           <p className="text-sm font-medium text-[var(--color-text-muted)]">
             Setup fee: {tier.setupFeeDisplay}
           </p>
-        )}
-      </div>
+        </div>
+      )}
+      {isAnnual && <div className="mb-4" />}
 
       <p className="text-sm text-[var(--color-text-muted)] mb-6 leading-relaxed">
         {tier.description}
