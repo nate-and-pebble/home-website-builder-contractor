@@ -14,7 +14,7 @@ export const pricingTiers: PricingTier[] = [
     id: "starter",
     name: "Starter",
     monthlyPrice: 79,
-    setupFee: 499,
+    setupFee: 750,
     description:
       "Everything you need for a professional, worry-free web presence. Perfect for small businesses that want to look polished without the hassle.",
     features: [
@@ -31,7 +31,7 @@ export const pricingTiers: PricingTier[] = [
     id: "growth",
     name: "Growth",
     monthlyPrice: 197,
-    setupFee: 499,
+    setupFee: 750,
     description:
       "For businesses ready to grow. Everything in Starter plus SEO, analytics, and unlimited content updates to turn your site into a lead-generating machine.",
     features: [
@@ -51,7 +51,7 @@ export const pricingTiers: PricingTier[] = [
     id: "full-presence",
     name: "Full Presence",
     monthlyPrice: 447,
-    setupFee: 499,
+    setupFee: 750,
     description:
       "Your complete digital partner. Everything in Growth plus booking, email marketing, social media, and strategic guidance for maximum impact.",
     features: [
