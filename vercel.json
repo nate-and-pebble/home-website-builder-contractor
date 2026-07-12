@@ -1,0 +1,16 @@
+{
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "itsmenate.com" }],
+      "destination": "https://cookie-town.itsmenate.com",
+      "permanent": true
+    },
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "www.itsmenate.com" }],
+      "destination": "https://cookie-town.itsmenate.com",
+      "permanent": true
+    }
+  ]
+}
